@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+{% block title %}Comprobador de Poker{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid p-0">
+
+  <section class="resume-section p-3 p-lg-5 d-flex d-column">
+    <div class="my-auto text-center">
+      <h1 class="mb-0">Comprobador
+        <span class="text-primary">de Jugadadas</span>
+      </h1>
+      <hr>
+      <div class="subheading mb-5">Comprobador de Jugadas de Poker ·
+        <a href="{% url 'home' %}">Estilo Texas Holdem</a>
+      </div>
+      <p class="lead mb-5 text-center">Calculadora de las mejores manos de una jugadas de Poker. Tan solo tienes que
+        introducir el numero de jugadores de la partida y hacer click en "continuar". Después debes de introducir las
+        cartas de los juegadores y comprobarás cual de todos tiene la mejor jugada.</p>
+
+      <div class="container col-lg-6">
+        <form class="" action="" method="POST">{% csrf_token %}
+          {{form.as_p}}
+          <input class="btn" type="submit" name="jugadores" value="Continuar">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column text-center" id="about">
+    <div class="my-3">
+      <h2 class="mb-2">About | Sobre el Proyecto</h2>
+      <hr class="">
+      <div class="resume-item d-flex flex-column flex-md-row mb-5">
+        <div class="resume-content mr-auto">
+          <div class="subheading mb-3">Comprobador de Jugadas de Poker</div>
+          <p>¡Bienvenido! En esta sección tan solo te voy a contar el desarrollo de este proyecto y las tecnologías
+            usadas para su realización. Lo primero, para el "front-end"
+            o más bien, para el diseño se ha utilizado un template de Bootstrap, CSS y HTML muy básico. Para la lógica
+            de las jugadas se ha utilziado Python. Finalmente para el Backend se ha utilizado el Framework Django.</p>
+          <p>Si quieres saber más, puedes echar un vistazo al proyecto en <a target="_blank" href="https://github.com/albertumus/django-poker-app">Git</a></p><br>
+          <div class="subheading mb-1"></div>
+          <ul class="list-inline dev-icons">
+            <li class="list-inline-item">
+              <i class="fab fa-html5"></i>
+            </li>
+            <li class="list-inline-item">
+              <i class="fab fa-css3-alt"></i>
+            </li>
+            <li class="list-inline-item">
+              <i class="fab fa-js-square"></i>
+            </li>
+            <li class="list-inline-item">
+              <i class="fab fa-python"></i>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+  </section>
+
+</div>
+
+{% endblock %}

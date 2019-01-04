@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+{% block title %}Resultados{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid p-5 text-center mx-auto">
+  <section class="resume-section p-3 p-lg-5 d-flex d-column">
+    <div class="my-auto text-center">
+      <h1 class="mb-0">Comprobador
+        <span class="text-primary">de Jugadadas</span>
+      </h1>
+      <hr>
+      <div class="subheading mb-5">Comprobador de Jugadas de Poker ·
+        <a href="{% url 'home' %}">Estilo Texas Holdem</a><br>
+        {% if request.method == "POST" %}
+        <h4 class="mt-5" style="color:green">El ganador es: {{ganador}} con {{mejor_jugada_ganador}}</h4>
+        {% endif %}
+      </div>
+      <div class="row">
+        {% for i in jugadores %}
+        <div class="container col-lg-6 mt-5">
+          <form class="" action="" method="post">{% csrf_token %}
+            <h4>Jugador {{i}}</h4>
+            {{form.as_table}}
+        </div>
+        {% endfor %}
+        {{mano}}
+      </div>
+      <input type="submit" class="btn mt-5 text-center mx-auto btn-comprobar" name="cartas" value="Comprobar">
+      </form>
+      <div class="">
+
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}
